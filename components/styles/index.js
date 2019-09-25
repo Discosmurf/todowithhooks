@@ -37,7 +37,7 @@ export const Column = styled.div`
 export const Card = styled(Column)`
     margin: 10px;
     padding: 10px;
-    width: 150px;
+    min-width: 150px;
     min-height: 100px;
     background: white;
     border-radius: 10px;
