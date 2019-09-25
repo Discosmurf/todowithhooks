@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { TodoContext } from '../Context';
-import { TODO_ACTIONS } from '../Constants';
+import { TodoContext } from '../store/Context';
+import { TODO_ACTIONS } from '../store/Constants';
 import { TodoItem, TodoText } from './styles';
 
 const Todo = ({ text, done, taskId, todoId }) => {

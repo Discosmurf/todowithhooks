@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { Column, Card, Button, Row, InputWrapper } from './styles';
-import { TodoContext, ModalContext } from '../Context';
+import { TodoContext, ModalContext } from '../store/Context';
 
 const ModalBackground = styled(Column)`
     width: 100vw;

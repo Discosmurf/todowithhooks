@@ -1,8 +1,8 @@
 import React, { useMemo, useContext } from 'react';
 import Todo from './Todo';
 import { Heading, Card, TodoList, Button, StatusMarker } from './styles';
-import { ModalContext, TodoContext } from '../Context';
-import { TODO_ACTIONS, TASK_ACTIONS, TASK_STATUS } from '../Constants';
+import { ModalContext, TodoContext } from '../store/Context';
+import { TODO_ACTIONS, TASK_ACTIONS, TASK_STATUS } from '../store/Constants';
 
 const Task = ({ heading, todos, taskId }) => {
     const { setModalOpen, setDispatchObject } = useContext(ModalContext);

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { TASK_STATUS } from '../../Constants';
+import { TASK_STATUS } from '../../store/Constants';
 
 export const Heading = styled.h3`
     text-align: center;

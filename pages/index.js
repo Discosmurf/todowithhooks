@@ -1,7 +1,7 @@
 import React, { useState, useReducer, useMemo } from 'react'
 import produce from 'immer';
-import { TodoContext, ModalContext } from '../Context';
-import { todoReducer, initialState } from '../Reducers';
+import { TodoContext, ModalContext } from '../store/Context';
+import { todoReducer, initialState } from '../store/Reducers';
 import Board from '../components/Board';
 import Modal from '../components/Modal';
 import Header from '../components/Header';

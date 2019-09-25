@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components';
-import { TodoContext } from '../Context';
+import { TodoContext } from '../store/Context';
 import Task from './Task';
 
 const TaskBoard = styled.div`

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { useState, useEffect, useContext } from 'react';
-import { ModalContext } from '../Context';
-import { TASK_ACTIONS } from '../Constants';
+import { ModalContext } from '../store/Context';
+import { TASK_ACTIONS } from '../store/Constants';
 import { Button } from './styles';
 
 export default () => {
