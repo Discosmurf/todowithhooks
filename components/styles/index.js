@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { TASK_STATUS } from '../../Constants';
 
 export const Heading = styled.h3`
     text-align: center;
@@ -12,7 +13,7 @@ export const TodoList = styled.ul`
 `
 
 export const TodoText = styled.h5`
-${props => props.done && css`text-decoration: line-through;`}
+${props => props.done && css`color: gray;`}
 `
 
 export const TodoItem = styled.li`
@@ -103,3 +104,17 @@ export const InputWrapper = styled.div`
         box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.3);
     }
 `;
+
+export const StatusMarker = styled.div`
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    ${props => props.status === TASK_STATUS.STARTED && 
+        css`background: orange;`
+    }
+    ${props => props.status === TASK_STATUS.DONE && 
+        css`background: green;`
+    }
+
+`

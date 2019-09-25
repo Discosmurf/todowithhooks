@@ -9,3 +9,9 @@ export const TASK_ACTIONS = {
     DELETE_TASK: 'DELETE_TASK',
     UPDATE_STATUS: 'UPDATE_STATUS',
 }
+
+export const TASK_STATUS = {
+    NOT_STARTED: 'NOT_STARTED',
+    STARTED: 'STARTED',
+    DONE: 'DONE',
+}

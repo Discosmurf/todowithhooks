@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useMemo } from 'react'
+import React, { useState, useReducer, useMemo } from 'react'
 import produce from 'immer';
 import { TodoContext, ModalContext } from '../Context';
 import { todoReducer, initialState } from '../Reducers';
@@ -16,10 +16,6 @@ const Home = () => {
   const todoCtxValue = useMemo(() => { 
     return { state, dispatch } 
   }, [state, dispatch]);
-
-  useEffect(() => {
-    console.log(modalOpen);
-  }, [modalOpen]);
 
   const modalCtxValue = {modalOpen, setModalOpen, dispatchObject, setDispatchObject};
 
