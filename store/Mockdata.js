@@ -85,7 +85,7 @@ const dataFromServer = {
 
 export const slideContent = [
     {
-        heading: 'Motivasjon',
+        heading: 'Hooks - Motivasjon',
         bullets: [
             'Entydig tilnærming til komponentutvikling',
             'Fra klasse til funksjons-paradigme',
@@ -94,7 +94,7 @@ export const slideContent = [
         ]
     },
     {
-        heading: 'Bruksområder',
+        heading: 'Hooks - Bruksområder',
         bullets: [
             'Gjenbruk av stateful logikk',
             'Kontroll på side effects',
@@ -104,7 +104,7 @@ export const slideContent = [
         ]
     },
     {
-        heading: 'Custom hooks',
+        heading: 'Hooks - Custom hooks',
         bullets: [
             'Hooks er funksjoner som alle kan utvikle',
             'Kan løse både generelle og spesielle oppgaver',
@@ -133,7 +133,7 @@ export const slideContent = [
         heading: 'useReducer',
         bullets: [
             'Kan sammenliknes med hvordan Redux fungerer',
-            'Tilordnes med en initial state og man benytter en dispatch-funksjon for å manipulere',
+            'Tilordnes med en reducer, en initial state og man benytter en dispatch-funksjon for å manipulere',
             'Bør benyttes sammen med Immer.js for immutability',
             'Velegnet til å holde kontroll på tilstandsflyt i UI og til å organisere forretningslogikk',
         ]
