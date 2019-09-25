@@ -118,7 +118,7 @@ export const slideContent = [
             'Enkel hook for å opprette og tilordne state',
             'Bør holdes så grunn som mulig',
             'Kan betraktes som et getter/setter-par',
-            'Mulig opprette så mange man vil',
+            'Mulig å opprette så mange man vil',
             'Ved større kompleksitet bør useReducer benyttes',
         ]
     },
@@ -141,7 +141,7 @@ export const slideContent = [
     {
         heading: 'useContext',
         bullets: [
-            'Benyttes React sitt Context API',
+            'Benytter React sitt Context API',
             'Velegnet til deling av state mellom komponenter',
             'Går veldig godt i lag med useReducer',
         ]
