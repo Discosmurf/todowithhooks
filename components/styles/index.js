@@ -131,7 +131,7 @@ export const ModalBackground = styled(Column)`
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.2);
-    position: absolute;
+    position: fixed;
     justify-content: center;
     text-align: center;
     ${props => !props.open && css`display: none;`}
