@@ -8,6 +8,10 @@ const TaskBoard = styled.div`
     display: flex;
     flex-wrap: wrap;
     position: absolute;
+    width: 100vw;
+    @media (max-width: 414px) {
+        justify-content: center;
+    }
 `;
 
 const Board = () => {

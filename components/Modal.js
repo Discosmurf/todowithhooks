@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styled, { css } from 'styled-components';
-import { Column, Card } from './styles';
+import { Column, Card, Button, Row, InputWrapper } from './styles';
 import { TodoContext, ModalContext } from '../Context';
 
 const ModalBackground = styled(Column)`
@@ -9,6 +9,7 @@ const ModalBackground = styled(Column)`
     background: rgba(0, 0, 0, 0.2);
     position: absolute;
     justify-content: center;
+    text-align: center;
     ${props => !props.open && css`display: none;`}
 `
 const Modal = () => {
@@ -37,9 +38,13 @@ const Modal = () => {
         <ModalBackground open={modalOpen}>
             <Card>
                 <h5>{prompt}</h5>
-                <input type="text" value={inputValue} onChange={handleChange} />
-                <button onClick={handleSubmit} disabled={inputValue === ''}>Add</button>
-                <button onClick={handleClose}>Cancel</button>
+                <InputWrapper>
+                    <input type="text" value={inputValue} onChange={handleChange} />
+                </InputWrapper>
+                <Row>
+                    <Button onClick={handleSubmit} disabled={inputValue === ''}>Add</Button>
+                    <Button secondary onClick={handleClose}>Cancel</Button>
+                </Row>
             </Card>
         </ModalBackground>
     )

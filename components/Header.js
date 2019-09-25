@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { useState, useEffect, useContext } from 'react';
 import { ModalContext } from '../Context';
 import { TASK_ACTIONS } from '../Constants';
+import { Button } from './styles';
 
 export default () => {
     const [ headerTransparent, setHeaderTransparent ] = useState(true);
@@ -41,7 +42,7 @@ export default () => {
                     <h3>TASK BOARD</h3>
                 </HeaderItem>
                 <HeaderItem>
-                    <button onClick={handleOpenModal}>Add new task</button>
+                    <Button onClick={handleOpenModal}>Add new task</Button>
                 </HeaderItem>
             </ItemWrapper>
             
@@ -80,15 +81,18 @@ const StyledHeaderBackground = styled.div`
         :
         css`
             opacity: 1;
+            -webkit-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.25);
+            -moz-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.25);
+            box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.25);
         `
     }
 
     @media (max-width: 375px) {
-        height: 60px;
+        height: 70px;
     }
 
     @media (max-width: 320px) {
-        height: 50px;
+        height: 60px;
     }
 
 `
