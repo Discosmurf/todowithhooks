@@ -45,8 +45,7 @@ export const Column = styled.div`
 export const Card = styled(Column)`
     margin: 10px;
     padding: 10px;
-    min-width: 150px;
-    max-width: 170px;
+    width: 25%;
     min-height: 100px;
     background: white;
     border-radius: 10px;
@@ -54,8 +53,7 @@ export const Card = styled(Column)`
     -moz-box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.25);
     @media (max-width: 414px) {
-        width: 300px;
-        max-width: 300px;
+        width: 80%;
     }
 `;
 
