@@ -1,7 +1,9 @@
-import React, { useState, useReducer, useMemo } from 'react'
+import React, { useEffect, useState, useReducer, useMemo } from 'react'
 import produce from 'immer';
 import { TodoContext, ModalContext } from '../store/Context';
 import { todoReducer, initialState } from '../store/Reducers';
+import { TASK_ACTIONS } from './Constants';
+import { fetchDataFromServer } from '../store/Mockdata';
 
 const ContextProvider = ({ children }) => {
   const immerReducer = produce(todoReducer);
@@ -9,6 +11,17 @@ const ContextProvider = ({ children }) => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [dispatchObject, setDispatchObject] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+        const data = await fetchDataFromServer();
+        dispatch({
+            type: TASK_ACTIONS.ADD_BATCH_TO_STORE,
+            taskBatch: data.tasks,
+        });
+    };
+    fetchData();
+  }, []);
 
   const todoCtxValue = useMemo(() => { 
     return { state, dispatch } 

@@ -4,22 +4,29 @@ import { TASK_STATUS } from '../../store/Constants';
 export const Heading = styled.h3`
     text-align: center;
     font-weight: bold;
-`
-
-export const TodoList = styled.ul`
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-`
+`;
 
 export const TodoText = styled.h5`
-${props => props.done && css`color: gray;`}
-`
+    margin: 3px;
+    ${props => props.done && css`color: gray;`}
+`;
 
-export const TodoItem = styled.li`
+export const TodoList = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 90%;
+    margin-bottom: 10px;
+`;
+
+export const TodoItem = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+`;
+
+export const StickToBottom = styled.div`
+    position: absolute;
+    bottom: 0;
 `
 
 export const Row = styled.div`
@@ -33,12 +40,13 @@ export const Column = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-`
+`;
 
 export const Card = styled(Column)`
     margin: 10px;
     padding: 10px;
     min-width: 150px;
+    max-width: 170px;
     min-height: 100px;
     background: white;
     border-radius: 10px;
@@ -47,8 +55,10 @@ export const Card = styled(Column)`
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.25);
     @media (max-width: 414px) {
         width: 300px;
+        max-width: 300px;
     }
-`
+`;
+
 export const Button = styled.button`
     background: black;
     border: none;
@@ -79,7 +89,7 @@ export const Button = styled.button`
     :focus {
         outline: none;
     }
-`
+`;
 
 export const InputWrapper = styled.div`
     border: 1px solid black;
@@ -116,5 +126,31 @@ export const StatusMarker = styled.div`
     ${props => props.status === TASK_STATUS.DONE && 
         css`background: green;`
     }
+`;
+export const ModalBackground = styled(Column)`
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    ${props => !props.open && css`display: none;`}
+`;
 
+export const BoardStyle = styled.div`
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 100vw;
 `
+
+export const TaskBoard = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    @media (max-width: 414px) {
+        justify-content: center;
+        width: 100%;
+    }
+`;
