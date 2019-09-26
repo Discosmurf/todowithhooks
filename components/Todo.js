@@ -16,7 +16,7 @@ const Todo = ({ text, done, taskId, todoId }) => {
     };
     return (
         <TodoItem>
-            <input type="checkbox" onChange={handleChange} defaultChecked={done} />
+            <input type="checkbox" onChange={handleChange} checked={done} />
             <TodoText done={done}>{text}</TodoText>
         </TodoItem>
     )

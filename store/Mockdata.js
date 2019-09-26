@@ -132,6 +132,8 @@ export const slideContent = [
         heading: 'useEffect',
         bullets: [
             'Hook for å holde kontroll på sideeffekter',
+            'Legge til/fjerne listeners',
+            'Lytter til forandringer internt eller i "omverdenen" som skal trigge en forandring i komponenten',
             'Erstatter i stor grad life cycle functions',
         ]
     },
@@ -148,8 +150,9 @@ export const slideContent = [
         heading: 'useContext',
         bullets: [
             'Benytter React sitt Context API',
-            'Velegnet til deling av state mellom komponenter',
-            'Går veldig godt i lag med useReducer',
+            'useContext kan benyttes i stedet for Consumer-HOC',
+            'Velegnet til deling av state mellom komponenter uten direkte kobling',
+            'Går veldig godt i lag med useReducer og Immer.js',
         ]
     },
     {

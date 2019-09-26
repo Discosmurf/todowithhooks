@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { Column, Row, Button } from './styles';
 import { slideContent } from '../store/Mockdata';
+import { TodoContext } from '../store/Context';
+import { TODO_ACTIONS } from '../store/Constants';
+import Todo from './Todo';
 
 const InfoBoard = styled(Column)`
     width: 49%;
@@ -41,10 +44,21 @@ const InfoSubHeading = styled.h3`
 
 const Slides = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const { dispatch } = useContext(TodoContext);
     const handleNext = () => {
+        dispatch({
+            type: TODO_ACTIONS.UPDATE_TODO,
+            searchText: slideContent[currentSlide].heading,
+            status: true,
+        });
         if (currentSlide < slideContent.length - 1) setCurrentSlide(currentSlide +1);
     }
     const handleBack = () => {
+        dispatch({
+            type: TODO_ACTIONS.UPDATE_TODO,
+            searchText: slideContent[currentSlide].heading,
+            status: false,
+        });
         if (currentSlide !== 0) setCurrentSlide(currentSlide -1);
     }
     return (
@@ -58,7 +72,7 @@ const Slides = () => {
                 {slideContent[currentSlide].subHeading}
             </InfoSubHeading>
             <ul>
-                {slideContent[currentSlide].bullets.map(bullet => <li>{bullet}</li>)}
+                {slideContent[currentSlide].bullets.map((bullet, k) => <li key={k}>{bullet}</li>)}
             </ul>
             </Content>
             <Row>
