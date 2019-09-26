@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { useState, useEffect, useContext } from 'react';
 import { ModalContext } from '../store/Context';
 import { TASK_ACTIONS } from '../store/Constants';
-import { Button } from './styles';
+import { Button, CollapseForMobile } from './styles';
 import TaskCounter from './TaskCounter';
 
 export default () => {
@@ -43,7 +43,9 @@ export default () => {
                     <h3>TASK BOARD</h3>
                 </HeaderItem>
                 <Nav>
-                    <TaskCounter />
+                    <CollapseForMobile>
+                        <TaskCounter />
+                    </CollapseForMobile>
                     <Button onClick={handleOpenModal}>Add new task</Button>
                 </Nav>
             </ItemWrapper>
@@ -90,11 +92,11 @@ const StyledHeaderBackground = styled.div`
     }
 
     @media (max-width: 375px) {
-        height: 70px;
+        height: 80px;
     }
 
     @media (max-width: 320px) {
-        height: 60px;
+        height: 70px;
     }
 
 `
@@ -159,3 +161,4 @@ const StyledHeader = styled.div`
       padding: 2px;
     }
 `
+

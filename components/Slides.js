@@ -17,7 +17,7 @@ const InfoBoard = styled(Column)`
     p {
         font-size: 1rem;
     }
-    @media (max-width: 414px) {
+    @media (max-width: 768px) {
         width: 100%;
         border: none;
     }

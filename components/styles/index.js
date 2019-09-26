@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
 import { TASK_STATUS } from '../../store/Constants';
 
+export const CollapseForMobile = styled.div`
+    @media (max-width: 414px) {
+        display: none;
+    }
+`;
+
 export const Heading = styled.h3`
     text-align: center;
     font-weight: bold;
@@ -142,13 +148,13 @@ export const BoardStyle = styled.div`
     flex-wrap: wrap;
     position: absolute;
     width: 100vw;
-`
+`;
 
 export const TaskBoard = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 50%;
-    @media (max-width: 414px) {
+    @media (max-width: 768px) {
         justify-content: center;
         width: 100%;
     }
