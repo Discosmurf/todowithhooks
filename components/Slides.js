@@ -54,7 +54,7 @@ const Slides = () => {
             <InfoHeading align={slideContent[currentSlide].alignHeading}>
                 {slideContent[currentSlide].heading}
             </InfoHeading>
-            <InfoSubHeading>
+            <InfoSubHeading align={slideContent[currentSlide].alignHeading}>
                 {slideContent[currentSlide].subHeading}
             </InfoSubHeading>
             <ul>
