@@ -114,6 +114,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const StatusMarker = styled.div`
+    margin: 0 10px;
     width: 20px;
     height: 20px;
     background: red;

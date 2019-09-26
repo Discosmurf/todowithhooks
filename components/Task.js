@@ -13,6 +13,11 @@ const Task = ({ heading, todos, taskId }) => {
         const total = todos.length;
         const done = todos.filter(todo => todo.done);
         if (done.length > 0) status = done.length < total ? TASK_STATUS.STARTED : TASK_STATUS.DONE;
+        dispatch({
+            type: TASK_ACTIONS.UPDATE_STATUS,
+            taskId,
+            taskStatus: status,
+        })
         return status;
     }, [todos]);
 

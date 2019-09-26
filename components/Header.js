@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { ModalContext } from '../store/Context';
 import { TASK_ACTIONS } from '../store/Constants';
 import { Button } from './styles';
+import TaskCounter from './TaskCounter';
 
 export default () => {
     const [ headerTransparent, setHeaderTransparent ] = useState(true);
@@ -41,9 +42,10 @@ export default () => {
                 <HeaderItem>
                     <h3>TASK BOARD</h3>
                 </HeaderItem>
-                <HeaderItem>
+                <Nav>
+                    <TaskCounter />
                     <Button onClick={handleOpenModal}>Add new task</Button>
-                </HeaderItem>
+                </Nav>
             </ItemWrapper>
             
             </StyledHeader>
@@ -108,6 +110,12 @@ const HeaderItem = styled.div`
         cursor: pointer;
         transform: scale(1.1);
     }
+`
+
+const Nav = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
 `
 
 const StyledHeaderWrapper = styled.div`
