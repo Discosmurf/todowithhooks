@@ -6,6 +6,7 @@ import { TodoItem, TodoText } from './styles';
 const Todo = ({ text, done, taskId, todoId }) => {
     const { dispatch } = useContext(TodoContext);
     const handleChange = () => {
+        console.log('ferwig');
         dispatch({
             type: TODO_ACTIONS.UPDATE_TODO,
             taskId,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Column, Row, Button } from './styles';
 import { slideContent } from '../store/Mockdata';
 
@@ -30,6 +30,13 @@ const Content = styled.div`
 
 const InfoHeading = styled.h1`
     margin: 30px 0;
+    ${props => props.align && css`text-align: center;`}
+`
+
+const InfoSubHeading = styled.h3`
+    margin: 10px 0;
+    ${props => props.align && css`text-align: center;`}
+    color: gray;
 `
 
 const Slides = () => {
@@ -41,20 +48,23 @@ const Slides = () => {
         if (currentSlide !== 0) setCurrentSlide(currentSlide -1);
     }
     return (
-        <InfoBoard>
-            <Row>
-                <Button secondary onClick={handleBack}>Back</Button>
-                <Button onClick={handleNext}>Next</Button>
-            </Row>
+        <InfoBoard>            
             <Content>
             <p>{currentSlide + 1}/{slideContent.length}</p>
-            <InfoHeading>
+            <InfoHeading align={slideContent[currentSlide].alignHeading}>
                 {slideContent[currentSlide].heading}
             </InfoHeading>
+            <InfoSubHeading>
+                {slideContent[currentSlide].subHeading}
+            </InfoSubHeading>
             <ul>
                 {slideContent[currentSlide].bullets.map(bullet => <li>{bullet}</li>)}
             </ul>
             </Content>
+            <Row>
+                <Button secondary onClick={handleBack}>Back</Button>
+                <Button onClick={handleNext}>Next</Button>
+            </Row>
         </InfoBoard>
     )
 }

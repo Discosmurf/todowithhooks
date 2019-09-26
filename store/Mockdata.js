@@ -85,7 +85,13 @@ const dataFromServer = {
 
 export const slideContent = [
     {
-        heading: 'Hooks - Motivasjon',
+        heading: 'React Hooks',
+        alignHeading: 'center',
+        subHeading: 'State management med Hooks og Context API',
+        bullets: []
+    },
+    {
+        heading: 'Motivasjon',
         bullets: [
             'Entydig tilnærming til komponentutvikling',
             'Fra klasse til funksjons-paradigme',
@@ -94,7 +100,7 @@ export const slideContent = [
         ]
     },
     {
-        heading: 'Hooks - Bruksområder',
+        heading: 'Bruksområder',
         bullets: [
             'Gjenbruk av stateful logikk',
             'Kontroll på side effects',
@@ -104,7 +110,7 @@ export const slideContent = [
         ]
     },
     {
-        heading: 'Hooks - Custom hooks',
+        heading: 'Custom hooks',
         bullets: [
             'Hooks er funksjoner som alle kan utvikle',
             'Kan løse både generelle og spesielle oppgaver',
