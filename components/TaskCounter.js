@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import { Row, StatusMarker } from './styles';
 import { TASK_STATUS } from '../store/Constants';
 import { TodoContext } from '../store/Context';

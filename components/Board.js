@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { BoardStyle, TaskBoard, Button } from './styles';
+import { BoardStyle, TaskBoard } from './styles';
 import { TodoContext } from '../store/Context';
 import Slides from './Slides';
 import Task from './Task';
