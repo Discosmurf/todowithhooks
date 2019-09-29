@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import Link from 'next/link';
 import { useState, useEffect, useContext } from 'react';
 import { ModalContext } from '../store/Context';
 import { TASK_ACTIONS } from '../store/Constants';
@@ -39,14 +40,20 @@ export default () => {
         <StyledHeaderBackground transparent={headerTransparent} />  
         <StyledHeader>
             <ItemWrapper>
-                <HeaderItem>
-                    <h3>TASK BOARD</h3>
-                </HeaderItem>
                 <Nav>
-                    <CollapseForMobile>
+                <HeaderItem>
+                    <Link href="/">
+                        <h3>TASK BOARD</h3>
+                    </Link>
+                </HeaderItem>            
+                <CollapseForMobile>
                         <TaskCounter />
-                    </CollapseForMobile>
-                    <Button onClick={handleOpenModal}>Add new task</Button>
+                </CollapseForMobile>
+                </Nav>
+                <Nav>                                        
+                    <HeaderItem>
+                        <Button onClick={handleOpenModal}>Add new task</Button>
+                    </HeaderItem>
                 </Nav>
             </ItemWrapper>
             
@@ -59,7 +66,6 @@ const ItemWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 `
 
 const StyledHeaderBackground = styled.div`
@@ -111,6 +117,12 @@ const HeaderItem = styled.div`
     :hover {
         cursor: pointer;
         transform: scale(1.1);
+    }
+    @media (max-width: 414px) {
+        padding: 3px 5px;
+        h3, h5 {
+            font-size: 0.8rem;
+        }
     }
 `
 

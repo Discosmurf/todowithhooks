@@ -4,31 +4,17 @@ import { TASK_STATUS } from '../store/Constants';
 import { TodoContext } from '../store/Context';
 
 const TaskCounter = () => {
-    const { state: { tasks } } = useContext(TodoContext);
-
-    const taskCount = useMemo(() => {
-        let count = {
-            notStarted: 0,
-            started: 0,
-            done: 0,
-        }
-        tasks.forEach(task  => {
-            if (task.status === TASK_STATUS.NOT_STARTED) count.notStarted ++;
-            if (task.status === TASK_STATUS.STARTED) count.started ++;
-            if (task.status === TASK_STATUS.DONE) count.done ++;
-        });
-        return count;
-    }, [tasks]);
-
+    const { selectors: { selectTaskCount } } = useContext(TodoContext);
+    
     return (
         <Row>
-            {taskCount && (
+            {selectTaskCount && (
                 <>
-                    {taskCount.notStarted}
+                    {selectTaskCount.notStarted}
                     <StatusMarker status={TASK_STATUS.NOT_STARTED} />
-                    {taskCount.started}
+                    {selectTaskCount.started}
                     <StatusMarker status={TASK_STATUS.STARTED} />
-                    {taskCount.done}
+                    {selectTaskCount.done}
                     <StatusMarker status={TASK_STATUS.DONE} />
                 </>
             )}

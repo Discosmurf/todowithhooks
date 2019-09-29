@@ -1,10 +1,8 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+import Header from '../components/Header';
+import Modal from '../components/Modal';
 import Meta from './Meta.js';
-
-const PageStyle = styled.div`
-    overflow-x: hidden;
-    max-width: 100vw;
-`;
+import { PageContent, PageStyle } from './styles';
 
 const GlobalStyle = createGlobalStyle`
     
@@ -27,13 +25,17 @@ const GlobalStyle = createGlobalStyle`
 `
 
 
-export default props => {
+export default ({ children }) => {
     
     return (
     <PageStyle>
         <Meta />
-        <GlobalStyle />
-        {props.children}
+        <GlobalStyle />        
+        <Header />
+        <PageContent>
+            {children}
+        </PageContent>
+        <Modal />
     </PageStyle>
     )
 }

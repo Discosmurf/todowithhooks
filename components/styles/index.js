@@ -72,7 +72,12 @@ export const Button = styled.button`
     margin: 2px 5px;
     font-family: 'ptsans';
     box-sizing: border-box;
-    ${props => props.width && css`width: ${props.width};`}
+    ${props => props.width && css`
+        width: ${props.width};
+        @media (max-width: 414px) {
+            width: 50%;
+        }
+    `}
     ${props => props.secondary && 
         css`
             border: 1px solid black; 
@@ -92,6 +97,10 @@ export const Button = styled.button`
     }
     :focus {
         outline: none;
+    }
+    @media (max-width: 414px) {
+        margin: 2px 3px;
+        padding: 5px 10px;
     }
 `;
 
@@ -143,7 +152,6 @@ export const ModalBackground = styled(Column)`
 `;
 
 export const BoardStyle = styled.div`
-    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
     position: absolute;
@@ -159,3 +167,18 @@ export const TaskBoard = styled.div`
         width: 100%;
     }
 `;
+
+export const PageContent = styled.div`
+    margin-top: 70px;
+`;
+
+export const PageStyle = styled.div`
+    overflow-x: hidden;
+    max-width: 100vw;
+`;
+
+export const Footer = styled(Column)`
+    height: 100px;
+    width: 100%;
+    text-align: center;
+`
