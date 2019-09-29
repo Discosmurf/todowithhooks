@@ -27,8 +27,8 @@ export default () => {
         setModalOpen(true);
     }
     
+    // useEffect used to add and remove listener for scroll
     useEffect(() => {
-        //handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
