@@ -44,14 +44,14 @@ const Slides = () => {
         <InfoBoard>        
             {slideContent.length > 0 &&
                 (<>
-                    <Content>
-                    <p>{currentSlide + 1}/{slideContent.length}</p>
-                    <SimpleBlockContent blocks={slideContent[currentSlide].body} />
-                    </Content>
                     <Row>
                         <Button secondary onClick={handleBack}>Back</Button>
                         <Button onClick={handleNext}>Next</Button>
                     </Row>
+                    <Content>
+                    <p>{currentSlide + 1}/{slideContent.length}</p>
+                    <SimpleBlockContent blocks={slideContent[currentSlide].body} />
+                    </Content>
                 </>)
             }
         </InfoBoard>

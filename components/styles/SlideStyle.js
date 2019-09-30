@@ -45,4 +45,14 @@ export const Content = styled.div`
     @media (max-width: 414px) {
         width: 90%;
     }
+
+    li {
+        font-size: 1rem;
+    }
+
+    code {
+        background: lightgray;
+        padding: 3px;
+        border-radius: 3px;
+    }
 `

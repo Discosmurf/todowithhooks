@@ -5,6 +5,18 @@ import client from '../store/static/client';
 
 const {projectId, dataset} = client.config()
 
+const serializers = {
+  marks: {
+    link: ({mark, children}) => {
+      // Read https://css-tricks.com/use-target_blank/
+      const { blank, href } = mark
+      return blank ?
+        <a href={href} target="_blank" rel="noopener">{children}</a>
+        : <a href={href}>{children}</a>
+    }
+  }
+}
+
 function SimpleBlockContent (props) {
   const {blocks} = props
 
@@ -13,7 +25,7 @@ function SimpleBlockContent (props) {
     return null
   }
 
-  return <BlockContent blocks={blocks} projectId={projectId} dataset={dataset} />
+  return <BlockContent blocks={blocks} projectId={projectId} dataset={dataset} serializers={serializers}/>
 }
 
 SimpleBlockContent.propTypes = {

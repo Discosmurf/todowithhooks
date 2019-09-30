@@ -154,6 +154,7 @@ export const ModalBackground = styled(Column)`
 export const BoardStyle = styled.div`
     display: flex;
     flex-wrap: wrap;
+    
     position: absolute;
     width: 100vw;
 `;
@@ -162,6 +163,7 @@ export const TaskBoard = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 50%;
+    height: 0;
     @media (max-width: 768px) {
         justify-content: center;
         width: 100%;
