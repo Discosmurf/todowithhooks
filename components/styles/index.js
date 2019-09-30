@@ -163,7 +163,9 @@ export const TaskBoard = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 50%;
-    height: 0;
+    @media (min-width: 1020px) {
+        height: 0;
+    }
     @media (max-width: 768px) {
         justify-content: center;
         width: 100%;
