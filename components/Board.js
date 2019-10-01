@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { BoardStyle, TaskBoard } from './styles';
 import { TodoContext } from '../store/Context';
-import Slides from './Slides';
+import SlideShow from './SlidesShow';
 import Task from './Task';
 
 export default () => {
@@ -11,7 +11,7 @@ export default () => {
             <TaskBoard>
                 {tasks.map((task, k) => task && <Task {...task} taskId={k} key={k} />)}            
             </TaskBoard>
-            <Slides />
+            <SlideShow />
         </BoardStyle>
     )
 };

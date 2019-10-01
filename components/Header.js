@@ -22,7 +22,7 @@ export default () => {
     const handleOpenModal = () => {
         setDispatchObject({
             type: TASK_ACTIONS.CREATE_TASK,
-            prompt: 'Add new task',
+            prompt: 'Legg til ny oppgave',
         })
         setModalOpen(true);
     }
@@ -43,16 +43,21 @@ export default () => {
                 <Nav>
                 <HeaderItem>
                     <Link href="/">
-                        <h3>TASK BOARD</h3>
+                        <h3>OPPGAVER</h3>
                     </Link>
                 </HeaderItem>            
                 <CollapseForMobile>
                         <TaskCounter />
                 </CollapseForMobile>
                 </Nav>
-                <Nav>                                        
+                <Nav>       
                     <HeaderItem>
-                        <Button onClick={handleOpenModal}>Add new task</Button>
+                        <Link href="/about">
+                            <h5>OM DENNE APPEN</h5>
+                        </Link>     
+                    </HeaderItem>                           
+                    <HeaderItem>
+                        <Button onClick={handleOpenModal}>LEGG TIL OPPGAVE</Button>
                     </HeaderItem>
                 </Nav>
             </ItemWrapper>

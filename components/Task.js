@@ -25,7 +25,7 @@ const Task = ({ heading, todos, taskId }) => {
         setDispatchObject({
             type: TODO_ACTIONS.CREATE_TODO,
             taskId,
-            prompt: 'Add new todo',
+            prompt: 'Legg til ny ToDo',
         });
         setModalOpen(true);
     };
@@ -42,8 +42,8 @@ const Task = ({ heading, todos, taskId }) => {
             <TodoList>
                 {todos.map((todo, k) => <Todo {...todo} todoId={k} taskId={taskId} key={k} />)}
             </TodoList>
-            <Button width="100%" onClick={handleOpenModal}>Add Todo</Button>
-            <Button width="100%" tertiary onClick={handleDelete}>Delete</Button>
+            <Button width="100%" onClick={handleOpenModal}>Legg til ToDo</Button>
+            <Button width="100%" tertiary onClick={handleDelete}>Slett</Button>
         </Card>
     )
 }

@@ -52,6 +52,7 @@ export const Card = styled(Column)`
     margin: 10px;
     padding: 10px;
     width: 25%;
+    ${props => props.width && css`width: ${props.width};`}
     min-height: 100px;
     background: white;
     border-radius: 10px;
@@ -113,6 +114,7 @@ export const InputWrapper = styled.div`
     justify-content: space-between;
     padding: 5px 20px 5px 20px;
     margin: 20px;
+    width: 80%;
     input {
         border: none;
         height: 30px;

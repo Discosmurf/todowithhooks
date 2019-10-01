@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Column } from '../styles';
 
 export const InfoBoard = styled(Column)`
@@ -26,6 +26,8 @@ export const InfoBoard = styled(Column)`
 export const Content = styled.div`
     flex-grow: 1;
     width: 80%;
+
+    ${props => props.width && css`width: ${props.width};`}
 
     h1 {
         margin: 30px 0;

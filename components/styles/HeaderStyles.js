@@ -35,12 +35,12 @@ export const StyledHeaderBackground = styled.div`
         `
     }
 
-    @media (max-width: 375px) {
-        height: 80px;
+    @media (max-width: 414px) {
+        height: 55px;
     }
 
     @media (max-width: 320px) {
-        height: 70px;
+        height: 50px;
     }
 
 `
@@ -56,10 +56,23 @@ export const HeaderItem = styled.div`
         cursor: pointer;
         transform: scale(1.1);
     }
+
+    h3, h5 {
+        margin: 0;
+        padding: 0;
+    }
+
     @media (max-width: 414px) {
         padding: 3px 5px;
         h3, h5 {
             font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 320px) {
+        padding: 3px 5px;
+        h3, h5 {
+            font-size: 0.5rem;
         }
     }
 `

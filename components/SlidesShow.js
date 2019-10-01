@@ -2,10 +2,10 @@ import { useState, useEffect, useContext } from 'react';
 import groq from 'groq';
 import { Row, Button } from './styles';
 import { InfoBoard, Content } from './styles/SlideStyle';
+import Slide from './Slide';
 import client from '../store/static/client';
 import { TodoContext } from '../store/Context';
 import { TODO_ACTIONS } from '../store/Constants';
-import SimpleBlockContent from './SimpleBlockContent';
 
 const slideQuery = groq`
     *[_type == "slideShow" && title == "Hooks"]
@@ -40,17 +40,18 @@ const Slides = () => {
         });
         if (currentSlide !== 0) setCurrentSlide(currentSlide -1);
     }
+
     return (
         <InfoBoard>        
             {slideContent.length > 0 &&
                 (<>
                     <Content>
                     <p>{currentSlide + 1}/{slideContent.length}</p>
-                    <SimpleBlockContent blocks={slideContent[currentSlide].body} />
+                    <Slide content={slideContent[currentSlide]} />                    
                     </Content>
                     <Row>
-                        <Button secondary onClick={handleBack}>Back</Button>
-                        <Button onClick={handleNext}>Next</Button>
+                        {currentSlide > 0 && <Button secondary onClick={handleBack}>Tilbake</Button>}
+                        {currentSlide < slideContent.length - 1 && <Button onClick={handleNext}>Neste</Button>}
                     </Row>
                 </>)
             }

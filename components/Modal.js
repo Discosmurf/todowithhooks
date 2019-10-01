@@ -33,8 +33,8 @@ const Modal = () => {
                     <input type="text" value={inputValue} onChange={handleChange} />
                 </InputWrapper>
                 <Row>
-                    <Button onClick={handleSubmit} disabled={inputValue === ''}>Add</Button>
-                    <Button secondary onClick={handleClose}>Cancel</Button>
+                    <Button onClick={handleSubmit} disabled={inputValue === ''}>Legg til</Button>
+                    <Button secondary onClick={handleClose}>Avbryt</Button>
                 </Row>
             </Card>
         </ModalBackground>
