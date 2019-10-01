@@ -22,11 +22,11 @@ Det statiske innholdet, det vil se det du leser akkurat nå, leveres via det nor
 
 ## useState
 
-Enkel hook for å opprette og tilordne state
-Bør holdes så grunn som mulig
-Kan betraktes som et getter/setter-par
-Mulig å opprette så mange man vil
-Ved større kompleksitet bør useReducer benyttes
+* Enkel hook for å opprette og tilordne state
+* Bør holdes så grunn som mulig
+* Kan betraktes som et getter/setter-par
+* Mulig å opprette så mange man vil
+* Ved større kompleksitet bør useReducer benyttes
 
 ### Bruk
 useState eksponerer to handlere - en "getter" og en "setter" for verdien man ønsker å tilføre lokal state.
