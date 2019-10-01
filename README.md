@@ -14,7 +14,7 @@ Denne wrapper alle filene i page-katalogen (foruten _document.js) som automatisk
 
 Filen ```/pages/_document.js``` sørger for at alle style sheets blir klargjort i de tilfellene siden rendres på serveren. Ellers vil man risikere at siden kommer til syne i browseren uten stiling i et lite øyeblikk før den hydreres med CSS.
 
-Alle siden wrappes av ```ContextProvider``` - komponenten hvor de to kontekstene for applikasjonen, TodoContext og ModalContext, tilordnes med sine verdier.
+Alle sidene wrappes av ```ContextProvider``` - komponenten hvor de to kontekstene for applikasjonen, TodoContext og ModalContext, tilordnes med sine verdier.
 
 I tillegg wrappes alle sidene i applikasjonen av en Page-komponent som sørger for enhetlig og gjennomgående stiling og at eksempelvis Headeren rendres i toppen av alle sidene.
 Appen benytter seg av en rekke eksempler på bruk av React Hooks, som beskrevet i de resterende slide'ene.
