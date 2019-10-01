@@ -2,13 +2,13 @@
 
 ## Om denne appen
 
-Denne appen er utviklet ved hjelp av rammeverket NEXT.js.
+Denne appen er utviklet ved hjelp av rammeverket [NEXT.js](https://nextjs.org).
 NEXT.js er en fork av React som øker jevnt i popularitet på grunn av mange gode innebygde features som
 * Støtte for serverside rendring (SSR)
 * Ut-av-boksen routing
 * Gode og gjennomtenkte byggeverktøy som gjør deployment utrolig enkelt
 
-Appen host'es serverless på skytjenesten ZEIT - utviklerne av NEXT-rammeverket.
+Appen host'es serverless på skytjenesten [ZEIT](https://zeit.co) - utviklerne av NEXT-rammeverket.
 Hvis man tar utgangspunkt i kildekoden, vil entrypunktet for appen være ```/pages/_app.js```
 Denne wrapper alle filene i page-katalogen (foruten _document.js) som automatisk blir omgjort til egne ruter (index.js er ```/``` som default).
 
@@ -18,7 +18,7 @@ Alle siden wrappes av ```ContextProvider``` - komponenten hvor de to kontekstene
 
 I tillegg wrappes alle sidene i applikasjonen av en Page-komponent som sørger for enhetlig og gjennomgående stiling og at eksempelvis Headeren rendres i toppen av alle sidene.
 Appen benytter seg av en rekke eksempler på bruk av React Hooks, som beskrevet i de resterende slide'ene.
-Det statiske innholdet, det vil se det du leser akkurat nå, leveres via det norske headless CMS'et Sanity. 
+Det statiske innholdet, det vil se det du leser akkurat nå, leveres via det norske headless CMS'et [Sanity](https://sanity.io). 
 
 ## useState
 
@@ -69,7 +69,75 @@ useEffect kan benyttes på tre hovedmetoder:
 
 ```useEffect(() => iLikeToRunOnEveryRender())```
 
-## Eksempler fra kildekoden
+### Eksempler fra kildekoden
 
-Opprettelse og fjerning av scroll event-listener
-Henting av data async
+* [Opprettelse og fjerning av scroll event-listener](/components/Header.js)
+* [Henting av data async](/components/Slides.js)
+
+## useReducer
+
+* Kan sammenliknes med hvordan action creators og reducere i Redux fungerer
+* Tilordnes med en reducer, en initial state og man benytter en dispatch-funksjon for å manipulere med actions
+* Bør benyttes sammen med Immer.js for immutability
+* Velegnet til å holde kontroll på tilstandsflyt i UI og til å organisere og gjenbruke forretningslogikk på tvers av komponenter.
+
+### Bruk
+
+```const [state, dispatch] = useReducer(reducer, initialState);```
+
+Merk: Handlerne er ikke nødt til å hete state og dispatch. De kan navngis helt fritt.
+
+### Eksempler fra kildekode
+
+* [Opprettelse av state og dispatch, forvaltet av Immer.js(Linje 9-10)](/store/ContextProvider.js)
+* [Reducer med Immer.js-draft.](/store/Reducers.js)
+* [Dispatch for å endre status på en Todo](/components/Todo.js)
+
+## useContext
+
+* Benytter React sitt Context API
+* useContext kan benyttes i stedet for Consumer-HOC
+* Velegnet til deling av state mellom komponenter uten direkte kobling
+* Lite "boilerplate" i forhold til andre tilnærmingsmetoder for forvalting av state i React
+* Stort sett alt mulig kan tilordnes en context provider
+  * Reducere, useState handles, memoiserte verdier (vha useMemo)
+* Går veldig godt i lag med useReducer og Immer.js
+
+### Bruk
+
+En context opprettes enkelt og greit, gjerne eksportert fra en egen fil:
+
+```export const MyContext = React.createContext();```
+
+Det er også mulig å tilordne en startverdi som parameter, men det er mer praktisk å gjøre dette i forbindelse med wrappingen 
+av den delen av komponenttreet man vil at konteksten skal gjelde for. 
+
+Den delen av komponent-treet som konteksten skal gjelde for wrappes således av et Provider-element som eksponeres gjennom konteksten.
+
+### Eksempler i kildekoden
+
+* [Opprettelse av kontekst](/store/Context.js)
+* [Wrapping og tilordning av kontekst (linje 43-55)](/store/ContextProvider.js)
+* Uthenting av handles fra kontekst i autonome komponenter
+  * [Modal](/components/Modal.js)
+  * [Board](/components/Board.js)
+  * De fleste komponentene i applikasjonen henter ut fra kontekst på en eller annen måte.
+
+## useMemo
+
+* Invokes på bakgrunn av endring i tilordnede avhengigheter
+* Kan benyttes for å opprette memoiserte selektorer som likner de som tilbys gjennom reselect.
+* Kan benyttes til ressurskrevende operasjoner.
+
+### Bruk
+
+```const selectLatestValue = useMemo(() => return someExpensiveOperation(value);), [value]);```
+
+Eksempelvis er det å anbefale å memoisere alle verdier som tilordnes kontekst-providers for å unngå at disse opprettes på nytt og trigger en re-rendring av det omsluttede komponent-treet hvis de ovenforliggende komponentene re-rendres.
+
+[(bedre forklart her under punktet "Performance Concerns")](https://hswolff.com/blog/how-to-usecontext-with-usereducer/)
+
+### Eksempler fra kildekoden
+* [Opprettelse av selektor (linje 28-40)](/store/ContextProvider.js)
+* [Uthenting av memoisert selektor i komponent (linje 7)](/components/TaskCounter.js)
+
