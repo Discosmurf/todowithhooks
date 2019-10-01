@@ -72,7 +72,7 @@ useEffect kan benyttes på tre hovedmetoder:
 ### Eksempler fra kildekoden
 
 * [Opprettelse og fjerning av scroll event-listener](/components/Header.js)
-* [Henting av data async](/components/Slides.js)
+* [Henting av data async](/components/SlideShow.js)
 
 ## useReducer
 
