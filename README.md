@@ -43,5 +43,33 @@ setValue(prevState => prevState + 1);
 
 ### Eksempler fra kildekode
 
-Tilstand for Header - Gjennomsiktig/Ikke gjennomsiktig
-Verdi for inputfelt
+* [Tilstand for Header - Gjennomsiktig/Ikke gjennomsiktig](/components/Header.js)
+* [Verdi for inputfelt](/components/Modal.js)
+
+## useEffect
+
+* Hook for å holde kontroll på sideeffekter
+* Legge til/fjerne listeners
+* Lytter til forandringer internt eller i "omverdenen" som skal trigge en forandring i komponenten
+* Erstatter i stor grad life cycle functions
+
+### Bruk
+
+useEffect kan benyttes på tre hovedmetoder:
+
+1) Denne effekten kjører en gang og kan sammenliknes med life cycle funksjonen componentDidMount. Ønsket oppførsel oppnås ved å la klammeparantesen i andre argument stå tom.
+
+```useEffect(() => initStuff()), []);```
+
+2) Denne utføres når en eller flere avhengigheter i klammeparantesen i andre argument endrer seg.
+
+```useEffect(() => triggerSomething()), [whenI, orI, orWeChange]);```
+
+3) Denne varianten utføres hver gang komponenten rendrer ettersom funksjonen ```iLikeToRunOnEveryRender()``` er eneste argument.
+
+```useEffect(() => iLikeToRunOnEveryRender())```
+
+## Eksempler fra kildekoden
+
+Opprettelse og fjerning av scroll event-listener
+Henting av data async
