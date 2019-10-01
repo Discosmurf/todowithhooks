@@ -52,6 +52,7 @@ export const Content = styled.div`
 
     code {
         background: lightgray;
+        color: darkred;
         padding: 3px;
         border-radius: 3px;
     }
